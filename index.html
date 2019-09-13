@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+  <!--   <style>
+
+  </style> -->
+</head>
+
+<body>
+
+  <form id="login">
+    <h1>Login</h1>
+    <input type="text" id="username" name="username" value="" class="textbox">
+    <button type="submit">Login</button>
+  </form>
+
+  <section id="messages">
+    <h1 id="sessionName"></h1>
+    <div id="status"></div>
+    <div id="messageFeed"></div>
+
+    <div>
+      <textarea id="messageTextarea"></textarea>
+      <button id="send">Send</button>
+    </div>
+
+  </section>
+
+  <script src="./node_modules/nexmo-client/dist/conversationClient.js"></script>
+  <script src="./node_modules/moment/moment.js"></script>
+  <script src="./chat.js"></script>
+
+</body>
+
+</html>
