@@ -1,5 +1,5 @@
-const ADAM_JWT = ''
-const BARBARA_JWT = ''
+const USER1_JWT = ''
+const USER2_JWT = ''
 const CONVERSATION_ID = '';
 
 let conversation = null;
@@ -17,11 +17,11 @@ function eventLogger(event) {
 }
 
 function authenticate(username) {
-  if (username == "adam") {
-    return ADAM_JWT
+  if (username == "USER1") {
+    return USER1_JWT
   }
-  if (username == "barbara") {
-    return BARBARA_JWT
+  if (username == "USER2") {
+    return USER2_JWT
   }
   alert("User not recognized")
 }
