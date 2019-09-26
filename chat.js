@@ -60,7 +60,7 @@ function setupShowMessages(conv) {
 }
 
 function joinConversation(userToken) {
-  new ConversationClient({
+  new NexmoClient({
     debug: false
   })
     .login(userToken)
