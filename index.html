@@ -2,7 +2,57 @@
 <html>
 
 <head>
-  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    body {
+      font: 13px Helvetica, Arial;
+    }
+
+    #login,
+    #messages {
+      width: 80%;
+      height: 500px;
+    }
+
+    form input[type=text] {
+      font-size: 20px;
+      height: 35px;
+      padding: 0px;
+    }
+
+    button {
+      height: 35px;
+      background-color: blue;
+      color: white;
+      width: 75px;
+      position: relative;
+      font-size: 15px;
+    }
+
+    textarea {
+      width: 85%;
+      font-size: 20px;
+    }
+
+    #messageFeed {
+      font-size: 18px;
+      padding-bottom: 20px;
+      line-height: 22pt;
+    }
+
+    #status {
+      height: 35px;
+      font-size: 12px;
+      color: blue;
+    }
+
+    #send {
+      width: 85%;
+    }
+
+    #messages {
+      display: none;
+    }
+  </style>
 </head>
 
 <body>
@@ -15,12 +65,12 @@
 
   <section id="messages">
     <h1 id="sessionName"></h1>
-    <div id="status"></div>
     <div id="messageFeed"></div>
 
     <div>
       <textarea id="messageTextarea"></textarea>
       <button id="send">Send</button>
+      <div id="status"></div>
     </div>
 
   </section>
