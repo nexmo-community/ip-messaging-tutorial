@@ -40,32 +40,8 @@ loginForm.addEventListener('submit', (event) => {
 loadMessagesButton.addEventListener('click', async (event) => {
   // Get next page of events
   let nextEvents = await listedEvents.getNext();
-  await listMessages(nextEvents);
+  listMessages(nextEvents);
 });
-
-async function listMessages(events) {
-  let messages = '';
-
-  // If there is a next page, display the Load Previous Messages button
-  if (events.hasNext()){
-    loadMessagesButton.style.display = "block";
-  } else {
-    loadMessagesButton.style.display = "none";
-  }
-
-  // Replace current with new page of events
-  listedEvents = events;
-
-  events.items.forEach(event => {
-    const formattedMessage = formatMessage(conversation.members.get(event.from), event, conversation.me);
-    messages = formattedMessage + messages;
-  });
-
-  // Update UI
-  messageFeed.innerHTML = messages + messageFeed.innerHTML;
-  messagesCountSpan.textContent = `${messagesCount}`;
-  messageDateSpan.textContent = messageDate;
-};
 
 async function run(userToken) {
   let client = new NexmoClient({ debug: true });
@@ -78,7 +54,7 @@ async function run(userToken) {
   // Load events that happened before the page loaded
   let initialEvents = await conversation.getEvents({ event_type: "text", page_size: 10, order:"desc" });
 
-  await listMessages(initialEvents);
+  listMessages(initialEvents);
 
   // Any time there's a new text event, add it as a message
   conversation.on('text', (sender, event) => {
@@ -118,6 +94,30 @@ async function run(userToken) {
   conversation.on("text:typing:off", (data) => {
     status.innerHTML = "";
   });
+}
+
+function listMessages(events) {
+  let messages = '';
+
+  // If there is a next page, display the Load Previous Messages button
+  if (events.hasNext()){
+    loadMessagesButton.style.display = "block";
+  } else {
+    loadMessagesButton.style.display = "none";
+  }
+
+  // Replace current with new page of events
+  listedEvents = events;
+
+  events.items.forEach(event => {
+    const formattedMessage = formatMessage(conversation.members.get(event.from), event, conversation.me);
+    messages = formattedMessage + messages;
+  });
+
+  // Update UI
+  messageFeed.innerHTML = messages + messageFeed.innerHTML;
+  messagesCountSpan.textContent = `${messagesCount}`;
+  messageDateSpan.textContent = messageDate;
 }
 
 function formatMessage(sender, message, me) {
