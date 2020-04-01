@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "moment": "^2.24.0",
-    "nexmo-client": "^5.3.4"
+    "nexmo-client": "^6.0.3"
   }
 }
