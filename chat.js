@@ -18,10 +18,10 @@ let messagesCount = 0;
 let messageDate;
 
 function authenticate(username) {
-  if (username == "user1") {
+  if (username == "USER1_NAME") {
     return USER1_JWT;
   }
-  if (username == "user2") {
+  if (username == "USER2_NAME") {
     return USER2_JWT;
   }
   alert("User not recognized");
