@@ -87,7 +87,7 @@ This installs `nexmo-client`, `moment` (for date/time manipulation) and `http-se
 
 ## Configuration
 
-Paste `USER1_JWT`, `USER2_JWT` and `CONVERSATION_ID` into the appropriate `const` variables at the top of the `index.html` page.
+Paste `USER1_JWT`, `USER2_JWT` and `CONVERSATION_ID` into the appropriate `const` variables at the top of the `chat.js` file.
 
 ### Testing
 
